@@ -24,6 +24,7 @@ data "aws_vpc" "custom_vpc" {
 resource "aws_instance" "blog" {
   ami           = data.aws_ami.app_ami.id
   instance_type = var.instance_type
+  subnet_id     = [subnet-099e345f33b6e12ba]
 
   vpc_security_group_ids = [aws_security_group.blog.id]
 
